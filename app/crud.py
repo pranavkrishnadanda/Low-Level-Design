@@ -1,4 +1,3 @@
-from app.database import SessionLocal
 from app.tables import Todo
 
 def create_todo(db,todo):
@@ -8,9 +7,9 @@ def create_todo(db,todo):
     db.refresh(db_todo)
     return db_todo
 
-def get_todos(db,todo):
+def get_todos(db,skip,limit):
     
-    return db.query(Todo).all()
+    return db.query(Todo).offset(skip).limit(limit).all(),db.query(Todo).count()
 
 def get_todos_by_id(db,todo):
     
