@@ -2,6 +2,10 @@ from fastapi import FastAPI
 from app.models import AddTodo
 app = FastAPI()
 
+
+
+
+
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
