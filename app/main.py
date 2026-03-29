@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from app.models import AddTodo
 app = FastAPI()
 
 @app.get("/")
@@ -6,9 +7,10 @@ def read_root():
     return {"Hello": "World"}
 
 @app.post('/AddTodos')
-def add_todos(title,description):
+def add_todos(todo : AddTodo):
     
-    # Logic for Implmenting Todos
+    print(todo.title)
+    print(todo.description)
     
     return {"status": 200,"success" : True}
 
